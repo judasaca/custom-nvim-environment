@@ -11,3 +11,5 @@ vim.keymap.set("n", "<c-k>", ":windcmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":windcmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":windcmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":windcmd l<CR>")
+
+vim.api.nvim_set_option("clipboard", "unnamed")
