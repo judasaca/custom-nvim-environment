@@ -62,7 +62,7 @@ return {
 					"stylua",
 					"isort",
 					"black",
-					"pylint",
+					"pyright",
 					"eslint_d",
 				},
 			})
