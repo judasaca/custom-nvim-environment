@@ -42,6 +42,7 @@ return {
 			lspconfig.pyright.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
+			lspconfig.mypy.setup({ capabilities = capabilities })
 			lspconfig.prismals.setup({ capabilities = capabilities })
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
@@ -64,6 +65,7 @@ return {
 					"black",
 					"pyright",
 					"eslint_d",
+					"mypy",
 				},
 			})
 		end,
