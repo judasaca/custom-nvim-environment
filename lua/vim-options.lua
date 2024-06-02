@@ -13,3 +13,13 @@ vim.keymap.set("n", "<c-h>", ":windcmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":windcmd l<CR>")
 
 vim.api.nvim_set_option("clipboard", "unnamed")
+
+vim.keymap.set("n", "<leader>nl", function()
+  require("noice").cmd("last")
+end)
+
+vim.keymap.set("n", "<leader>nh", function()
+  require("noice").cmd("history")
+end)
+
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
