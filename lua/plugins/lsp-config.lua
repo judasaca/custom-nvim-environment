@@ -37,10 +37,12 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			-- This provide autopcompletion capabilities
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			lspconfig.pyright.setup({ capabilities = capabilities })
-			--lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.tsserver.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.prismals.setup({ capabilities = capabilities })
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
