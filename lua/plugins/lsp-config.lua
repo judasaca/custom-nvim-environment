@@ -45,6 +45,9 @@ return {
 			lspconfig.prismals.setup({ capabilities = capabilities })
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 			lspconfig.cssls.setup({ capabilities = capabilities })
+
+			-- This is the correct setup for eslint
+			-- see here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
@@ -74,7 +77,6 @@ return {
 					"isort",
 					"black",
 					"pyright",
-					"eslint_d",
 					"mypy",
 				},
 			})
