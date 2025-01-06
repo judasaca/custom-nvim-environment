@@ -19,7 +19,7 @@ return {
 					"html",
 					--"htmx",
 					"jsonls",
-					"tsserver",
+					"ts_ls",
 					"jinja_lsp",
 					"markdown_oxide",
 					"prismals",
@@ -30,6 +30,7 @@ return {
 					"somesass_ls",
 					"taplo",
 					"tailwindcss",
+					"astro",
 				},
 			})
 		end,
@@ -42,11 +43,12 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			lspconfig.pyright.setup({ capabilities = capabilities })
-			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.prismals.setup({ capabilities = capabilities })
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 			lspconfig.cssls.setup({ capabilities = capabilities })
+			lspconfig.astro.setup({ capabilities = capabilities })
 
 			-- This is the correct setup for eslint
 			-- see here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint

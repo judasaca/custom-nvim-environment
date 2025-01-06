@@ -2,6 +2,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set relativenumber")
 vim.cmd("set number")
 vim.cmd("set cursorline")
 
@@ -15,11 +16,11 @@ vim.keymap.set("n", "<c-l>", ":windcmd l<CR>")
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.keymap.set("n", "<leader>nl", function()
-  require("noice").cmd("last")
+	require("noice").cmd("last")
 end)
 
 vim.keymap.set("n", "<leader>nh", function()
-  require("noice").cmd("history")
+	require("noice").cmd("history")
 end)
 
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
