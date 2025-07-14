@@ -12,6 +12,8 @@ return {
 					return { "lsp", "indent" }
 				end,
 			})
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "close fold" })
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "close fold" })
 		end,
 	},
 }

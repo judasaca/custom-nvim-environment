@@ -15,7 +15,13 @@ vim.keymap.set("n", "<c-h>", ":windcmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":windcmd l<CR>")
 
 vim.keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "close fold" })
-vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "close fold" })
+vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "open fold" })
+vim.keymap.set("n", "zK", function()
+	local winId = require("ufo").peekFoldedLinesUnderCursor()
+	if not winId then
+		vim.lsp.buff.hover()
+	end
+end)
 
 vim.api.nvim_set_option("clipboard", "unnamed")
 
