@@ -12,6 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.opt.termguicolors = true
+vim.opt.nofoldenable = true
+vim.opt.foldlevelstart = 99
 local opts = {}
 require("vim-options")
 require("lazy").setup("plugins")

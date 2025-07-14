@@ -23,7 +23,7 @@ return {
 					"jinja_lsp",
 					"markdown_oxide",
 					"prismals",
-					"pyright",
+					--"pyright",
 					"rust_analyzer",
 					"sqlls",
 					"slint_lsp",
@@ -42,18 +42,9 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-				settings = {
-					python = {
-						analysis = {
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
-							diagnosticMode = "workspace",
-						},
-					},
-				},
-			})
+			--lspconfig.pyright.setup({ capabilities = capabilities })
+      lspconfig.mypy.setup({ capabilities = capabilities })
+      lspconfig.ruff.setup({ capabilities = capabilities })
 			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.prismals.setup({ capabilities = capabilities })
@@ -92,7 +83,7 @@ return {
 					"stylua",
 					"isort",
 					"black",
-					"pyright",
+					--"pyright",
 					"mypy",
 				},
 			})
