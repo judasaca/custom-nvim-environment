@@ -5,7 +5,6 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.cmd("set number")
 vim.cmd("set cursorline")
-vim.cmd("set ")
 
 vim.g.mapleader = " "
 
