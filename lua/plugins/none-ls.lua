@@ -6,6 +6,7 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+		local ruff = require("none-ls.diagnostics.ruff")
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
@@ -15,9 +16,10 @@ return {
 				}),
 				--null_ls.builtins.formatting.black,
 				--null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.ruff,
-        null_ls.builtins.diagnostics.ruff,
-				null_ls.builtins.diagnostics.mypy,
+				ruff,
+				null_ls.builtins.diagnostics.mypy.with({
+					extra_args = { "--config-file", "mypy.ini" },
+				}),
 				null_ls.builtins.formatting.prisma_format,
 			},
 			on_attach = function(client, bufnr)
@@ -33,7 +35,7 @@ return {
 					})
 				end
 			end,
-      -- debug = true
+			debug = true,
 		})
 
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
