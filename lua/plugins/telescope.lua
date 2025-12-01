@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
+		tag = "v0.2.0",
 		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		config = function()
 			local builtin = require("telescope.builtin")
@@ -24,7 +24,7 @@ return {
 			})
 
 			require("telescope").load_extension("ui-select")
-			require("telescope").load_extension("fzf")
+			-- require("telescope").load_extension("fzf")
 		end,
 	},
 }
