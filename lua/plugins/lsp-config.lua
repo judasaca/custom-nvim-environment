@@ -34,36 +34,26 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			-- This provide autopcompletion capabilities
-			local lspconfig = vim.lsp
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local base_on_attach = vim.lsp.config.eslint.on_attach
+			--- This adds a command to format a document
+			vim.lsp.config("eslint", {
+				on_attach = function(client, bufnr)
+					if not base_on_attach then
+						return
+					end
 
-			--lspconfig.pyright.setup({ capabilities = capabilities })
-      -- MYPY is not part of lsp
-      --lspconfig.mypy.setup({ capabilities = capabilities })
-			-- lspconfig.ts_ls.setup({ capabilities = capabilities })
-			-- lspconfig.lua_ls.setup({ capabilities = capabilities })
-      -- lspconfig.ruff.setup({ capabilities = capabilities })
-			-- lspconfig.prismals.setup({ capabilities = capabilities })
-			-- lspconfig.tailwindcss.setup({ capabilities = capabilities })
-			-- lspconfig.cssls.setup({ capabilities = capabilities })
-			-- lspconfig.astro.setup({ capabilities = capabilities })
-			-- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-
-			-- This is the correct setup for eslint
-			-- see here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
-      local base_on_attach = vim.lsp.config.eslint.on_attach
-      --- This adds a command to format a document
-      vim.lsp.config("eslint", {
-        on_attach = function(client, bufnr)
-          if not base_on_attach then return end
-
-          base_on_attach(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "LspEslintFixAll",
-          })
-        end,
-      })
+					base_on_attach(client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "LspEslintFixAll",
+					})
+				end,
+			})
+      -- This requires pyright to be insalled: npm i -g pyright
+			vim.lsp.config("pyright", { capabilities = capabilities })
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("eslint")
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
