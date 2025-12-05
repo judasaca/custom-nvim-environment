@@ -54,6 +54,8 @@ return {
 			vim.lsp.config("pyright", { capabilities = capabilities })
       vim.lsp.enable("pyright")
       vim.lsp.enable("eslint")
+			vim.lsp.config("ruff", { capabilities = capabilities })
+      vim.lsp.enable("ruff")
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})

@@ -33,3 +33,8 @@ vim.keymap.set("n", "<leader>nh", function()
 end)
 
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
+
+vim.keymap.set("n", "<leader>crp", function()
+	vim.fn.setreg("+", vim.fn.expand("%"))
+	print("Copied relative path: " .. vim.fn.expand("%"))
+end, { desc = "Copy relative file path" })
