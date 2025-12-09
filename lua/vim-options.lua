@@ -38,3 +38,7 @@ vim.keymap.set("n", "<leader>crp", function()
 	vim.fn.setreg("+", vim.fn.expand("%"))
 	print("Copied relative path: " .. vim.fn.expand("%"))
 end, { desc = "Copy relative file path" })
+
+vim.keymap.set("n", "<leader>tc", function()
+	require("treesitter-context").toggle()
+end, { desc = "Toggle Treesitter Context" })
