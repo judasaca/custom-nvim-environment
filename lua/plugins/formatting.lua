@@ -11,10 +11,12 @@ return {
 			html = { "prettier" },
 			python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
 		},
-		format_on_save = {
-			-- These options will be passed to conform.format()
-			timeout_ms = 2500,
-			lsp_format = "fallback",
-		},
+		format_on_save = function(bufnr)
+			-- Disable with a global or buffer-local variable
+			if vim.g.conform_disable or vim.b[bufnr].conform_disable then
+				return
+			end
+			return { timeout_ms = 500, lsp_format = "fallback" }
+		end,
 	},
 }

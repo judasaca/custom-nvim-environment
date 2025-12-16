@@ -42,3 +42,14 @@ end, { desc = "Copy relative file path" })
 vim.keymap.set("n", "<leader>tc", function()
 	require("treesitter-context").toggle()
 end, { desc = "Toggle Treesitter Context" })
+
+vim.api.nvim_create_user_command("ConformToggle", function()
+	if vim.b.conform_disable then
+		vim.b.conform_disable = false
+		print("Conform: format on save enabled")
+	else
+		vim.b.conform_disable = true
+		print("Conform: format on save disabled")
+	end
+end, {})
+vim.keymap.set("n", "<leader>tf", "<cmd>ConformToggle<CR>", { desc = "Toggle format on save" })
