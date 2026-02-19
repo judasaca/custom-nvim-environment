@@ -16,7 +16,7 @@ return {
 			if vim.g.conform_disable or vim.b[bufnr].conform_disable then
 				return
 			end
-			return { timeout_ms = 1500, lsp_format = "fallback" }
+			return { timeout_ms = 2500, lsp_format = "fallback" }
 		end,
 	},
 }
