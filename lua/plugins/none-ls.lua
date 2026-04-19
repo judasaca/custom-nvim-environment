@@ -18,7 +18,7 @@ return {
 				--null_ls.builtins.formatting.isort,
 				ruff,
 				null_ls.builtins.diagnostics.mypy.with({
-					extra_args = { "--config-file", "mypy.ini" },
+					--extra_args = { "--config-file", "mypy.ini" },
 				}),
 				null_ls.builtins.formatting.prisma_format,
 			},

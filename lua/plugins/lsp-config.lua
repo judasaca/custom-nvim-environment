@@ -50,12 +50,12 @@ return {
 					})
 				end,
 			})
-      -- This requires pyright to be insalled: npm i -g pyright
+			-- This requires pyright to be insalled: npm i -g pyright
 			vim.lsp.config("pyright", { capabilities = capabilities })
-      vim.lsp.enable("pyright")
-      vim.lsp.enable("eslint")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("eslint")
 			vim.lsp.config("ruff", { capabilities = capabilities })
-      vim.lsp.enable("ruff")
+			vim.lsp.enable("ruff")
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
@@ -64,6 +64,12 @@ return {
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+			vim.keymap.set("n", "<leader>oi", function()
+				vim.lsp.buf.execute_command({
+					command = "_typescript.organizeImports",
+					arguments = { vim.api.nvim_buf_get_name(0) },
+				})
+			end)
 		end,
 	},
 	{
