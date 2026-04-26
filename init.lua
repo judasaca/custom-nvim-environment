@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 vim.opt.foldenable = true
 vim.opt.foldlevelstart = 99
+vim.o.exrc = true -- load .nvim.lua from cwd
+vim.o.secure = true -- but sandbox it (no autocmds, shell commands, etc.)
 --vim.opt.foldcolumn = "1"
 local opts = {}
 require("vim-options")
