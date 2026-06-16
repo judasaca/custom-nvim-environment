@@ -52,4 +52,4 @@ vim.api.nvim_create_user_command("ConformToggle", function()
 		print("Conform: format on save disabled")
 	end
 end, {})
-vim.keymap.set("n", "<leader>tf", "<cmd>ConformToggle<CR>", { desc = "Toggle format on save" })
+vim.keymap.set("n", "<leader>tcf", "<cmd>ConformToggle<CR>", { desc = "Toggle format on save" })
