@@ -14,7 +14,15 @@ return {
 			-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
 			separator = nil,
 			zindex = 20, -- The Z-index of the context window
-			on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+			on_attach = function(bufnr) -- (fun(buf: integer): boolean) return false to disable attaching
+				-- Disabled for markdown: crashes on this Neovim nightly build, see
+				-- https://github.com/nvim-treesitter/nvim-treesitter-context (injection parse error)
+				local ft = vim.bo[bufnr].filetype
+				if ft == "markdown" then
+					return false
+				end
+				return true
+			end,
 		})
 	end,
 }

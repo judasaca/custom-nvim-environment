@@ -23,7 +23,13 @@ return {
         "vim",
       },
       auto_install = true,
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        -- Disabled for markdown: fenced code blocks crash this Neovim nightly
+        -- build's core injection parser (languagetree.lua "attempt to call
+        -- method 'range'"). Re-enable once a newer nightly fixes it.
+        disable = { "markdown" },
+      },
       indent = { enable = true },
     })
   end,
